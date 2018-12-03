@@ -1,0 +1,18 @@
+<a href="/dota/teams/">Teams</a>
+<a href="/dota/matches/">Matches</a>
+<a href="/dota/players/">Players</a>
+
+<br>
+Match ID: {{ match.MatchID }}
+<br>
+Result: {{ match.MatchResult }}
+<br>
+RadiantID: {{ match.Team1ID.TeamID }}
+<br>
+DireID: {{ match.Team2ID.TeamID }}
+
+<form action="/dota/matches/{{ match.MatchID }}/edit" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>

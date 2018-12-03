@@ -1,0 +1,45 @@
+<a href="/dota/teams/">Teams</a>
+<a href="/dota/matches/">Matches</a>
+<a href="/dota/players/">Players</a>
+
+<br>
+{{ thisTeam.TeamName }}
+<br>
+Wins: {{ thisTeam.Wins }}
+<br>
+Losses: {{ thisTeam.Losses }}
+<br>
+{% if playerlist %}
+    <ul>
+    {% for player in playerlist %}
+        <li><a href="/dota/players/{{ player.PlayerID }}/">{{ player.Player_Name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No players</p>
+{% endif %}
+
+<br>
+Match List
+<br>
+{% if matchlist1 or matchlist2 %}
+    As Radiant
+    <ul>
+    {% for match in matchlist1 %}
+        <li><a href="/dota/matches/{{ match.MatchID }}/">{{ match.MatchID }}, vs {{ match.Team2ID.TeamName }}</a></li>
+    {% endfor %}
+    </ul>
+    As Dire
+    <ul>
+    {% for match in matchlist2 %}
+        <li><a href="/dota/matches/{{ match.MatchID }}/">{{ match.MatchID }}, vs {{ match.Team1ID.TeamName }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No matches</p>
+{% endif %}
+<br>
+<br>
+<a href="/dota/teams/{{ tid }}/edit">Edit this</a>
+<br><br><br>
+<a href="/dota/teams/{{ tid }}/delete">Delet this</a>

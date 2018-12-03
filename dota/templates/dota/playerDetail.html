@@ -1,0 +1,34 @@
+<a href="/dota/teams/">Teams</a>
+<a href="/dota/matches/">Matches</a>
+<a href="/dota/players/">Players</a>
+
+<br>
+{{ thisPlayer.Player_Name }}
+<br>
+Plays for: {{ thisPlayer.Team_Mem.TeamName }}
+
+<br>
+Is Captain? (0 - no, 1 - yes): {{ thisPlayer.Is_Captain }}
+<br>
+{% if m1 or m2 %}
+    As Radiant
+    <ul>
+    {% for match in m1 %}
+        <li><a href="/dota/matches/{{ match.MatchID }}/">{{ match.MatchID }}, vs {{ match.Team2ID.TeamName }}</a></li>
+    {% endfor %}
+    </ul>
+    As Dire
+    <ul>
+    {% for match in m2 %}
+        <li><a href="/dota/matches/{{ match.MatchID }}/">{{ match.MatchID }}, vs {{ match.Team1ID.TeamName }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p></p>
+{% endif %}
+
+<br>
+<br>
+<a href="/dota/players/{{ thisPlayer.PlayerID }}/edit">Edit this</a>
+<br><br><br>
+<a href="/dota/players/{{ thisPlayer.PlayerID }}/delete">Delet this</a>

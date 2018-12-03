@@ -1,0 +1,17 @@
+<a href="/dota/teams/">Teams</a>
+<a href="/dota/matches/">Matches</a>
+<a href="/dota/players/">Players</a>
+
+<br>
+{{ thisPlayer.Player_Name }}
+<br>
+Plays for: {{ thisPlayer.Team_Mem.TeamName }}
+<br>
+Is Captain? (0 - no, 1 - yes): {{ thisPlayer.Is_Captain }}
+<br>
+<br>
+<form action="/dota/players/{{ thisPlayer.PlayerID }}/edit" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>

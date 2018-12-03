@@ -1,0 +1,15 @@
+<a href="/dota/teams/">Teams</a>
+<a href="/dota/matches/">Matches</a>
+<a href="/dota/players/">Players</a>
+<br>
+<a href="/dota/matches/create">Make new Match</a>
+<br>
+{% if matchlist %}
+    <ul>
+    {% for match in matchlist %}
+        <li><a href="/dota/matches/{{ match.MatchID }}/">{{ match.MatchID }}, {{ match.Team1ID.TeamName }} vs {{ match.Team2ID.TeamName }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No matches</p>
+{% endif %}

@@ -1,0 +1,15 @@
+<a href="/dota/teams/">Teams</a>
+<a href="/dota/matches/">Matches</a>
+<a href="/dota/players/">Players</a>
+<br>
+<a href="/dota/players/create">Make new Player</a>
+<br>
+{% if playerlist %}
+    <ul>
+    {% for player in playerlist %}
+        <li><a href="/dota/players/{{ player.PlayerID }}/">{{ player.Player_Name }} - {{ player.Team_Mem.TeamName }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No players</p>
+{% endif %}
